@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -14,4 +14,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
   }
+`;
+
+export const Marginals = css`
+  box-sizing: border-box;
+  display: flex;
+  pointer-events: none;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 `;

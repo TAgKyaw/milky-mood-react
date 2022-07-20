@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Marginals } from "./styles";
 import { ReactComponent as LogoSVG } from "./img/logo.svg";
 
 const Logo = styled(LogoSVG)`
@@ -9,12 +10,7 @@ const Logo = styled(LogoSVG)`
 `;
 
 const Header = styled.header`
-  box-sizing: border-box;
-  display: flex;
-  pointer-events: none;
-  position: fixed;
-  width: 100vw;
-  z-index: 1;
+  ${Marginals}
   justify-content: center;
   padding: 30px;
 `;
