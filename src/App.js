@@ -1,7 +1,8 @@
 import React from "react";
-import { GlobalStyle } from "./styles";
+import { GlobalStyle, ImageContainer, Wrapper } from "./styles";
 import HeaderComponent from "./Header";
 import FooterComponent from "./Footer";
+import ImgBox from "./ImgBox";
 
 const App = () => {
   return (
@@ -9,6 +10,11 @@ const App = () => {
       <GlobalStyle />
       <HeaderComponent />
       <FooterComponent />
+      <Wrapper>
+        <ImageContainer>
+          <ImgBox />
+        </ImageContainer>
+      </Wrapper>
     </div>
   );
 };
