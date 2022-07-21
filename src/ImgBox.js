@@ -7,10 +7,12 @@ const Image = styled.div`
   height: 100px;
   width: 100px;
   position: relative;
+  background-position: ${({ $initialX, $initialY }) =>
+    `-${$initialX * 100}px -${$initialY * 100}px`};
 `;
 
-const ImgBox = () => {
-  return <Image />;
+const ImgBox = ({ x, y }) => {
+  return <Image $initialX={x} $initialY={y} />;
 };
 
 export default ImgBox;
