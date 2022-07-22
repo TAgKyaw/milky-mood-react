@@ -15,6 +15,14 @@ const H2 = styled.h2`
   line-height: 0.7;
   margin: 0;
   padding: 16px;
+
+  @media (max-width: 900px) {
+    font-size: 44px;
+  }
+  @media (max-width: 700px) {
+    font-size: 24px;
+    padding: 0%;
+  }
 `;
 const H2Middle = styled(H2)`
   flex-grow: 1;
