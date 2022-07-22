@@ -26,7 +26,8 @@ const ImgBox = ({ x, y, percent }) => {
     ]);
   }, [x, y]);
 
-  console.log(position);
+  // console.log(position);
+
   return (
     <Image
       $initialX={x}

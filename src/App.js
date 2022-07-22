@@ -44,7 +44,7 @@ const App = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      {showModal && <ModalComponent />}
+      {showModal && <ModalComponent toggleModal={toggleModal} />}
       <HeaderComponent />
       <FooterComponent />
       <Wrapper

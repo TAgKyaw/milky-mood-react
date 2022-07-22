@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { BG } from "./styles";
+import { BG, Close, AbsoluteCenter } from "./styles";
 
 const Modal = styled.div`
-  left: 50%;
-  top: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  ${AbsoluteCenter}
   animation: glow 1s forwards;
   background: #fbfbfb;
   box-sizing: border-box;
@@ -21,10 +18,12 @@ const Modal = styled.div`
   }
 `;
 
-const ModalComponent = () => (
+const ModalComponent = ({ toggleModal }) => (
   <>
-    <Modal />
-    <BG />
+    <Modal>
+      <Close onClick={toggleModal} />
+    </Modal>
+    <BG onClick={toggleModal} />
   </>
 );
 
