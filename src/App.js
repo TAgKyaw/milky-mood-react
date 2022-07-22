@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { GlobalStyle, ImageContainer, Wrapper } from "./styles";
+import { GlobalStyle, ImageContainer, Wrapper, Button } from "./styles";
 import HeaderComponent from "./Header";
 import FooterComponent from "./Footer";
+import ModalComponent from "./Modal";
 import ImgBox from "./ImgBox";
 
 // prettier-ignore
@@ -16,7 +17,7 @@ const matrix = [
 
 const App = () => {
   const [distance, setDistance] = useState(1);
-
+  const [showModal, setShowModal] = useState(false);
   const easing = (num) => Math.pow(num, 3);
 
   const calculateDistance = ([x, y]) => {
@@ -36,9 +37,14 @@ const App = () => {
     calculateDistance([touches[0].clientX, touches[0].clientY]);
   };
 
+  const toggleModal = () => {
+    setShowModal((showModal) => !showModal);
+  };
+
   return (
     <div className="App">
       <GlobalStyle />
+      {showModal && <ModalComponent />}
       <HeaderComponent />
       <FooterComponent />
       <Wrapper
@@ -46,7 +52,9 @@ const App = () => {
         onTouchMove={handleTouchMove}
         $color={Math.round(240 - distance * 90)}
       >
-        <ImageContainer $isTogether={distance < 0.001}>
+        <ImageContainer $isTogether={distance < 0.002}>
+          <Button onClick={toggleModal}>Sign Up For Updates</Button>
+
           {matrix.map(([x, y], index) => (
             <ImgBox key={index} x={x} y={y} percent={distance} />
           ))}
