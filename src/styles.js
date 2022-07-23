@@ -129,3 +129,8 @@ export const Close = styled.button`
     top: 30px;
   }
 `;
+
+export const Container = styled.div`
+  color: #000;
+  max-width: 440px;
+`;

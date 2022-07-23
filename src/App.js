@@ -3,6 +3,7 @@ import { GlobalStyle, ImageContainer, Wrapper, Button } from "./styles";
 import HeaderComponent from "./Header";
 import FooterComponent from "./Footer";
 import ModalComponent from "./Modal";
+import ModalInner from "./ModalInner";
 import ImgBox from "./ImgBox";
 
 // prettier-ignore
@@ -44,7 +45,11 @@ const App = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      {showModal && <ModalComponent toggleModal={toggleModal} />}
+      {showModal && (
+        <ModalComponent toggleModal={toggleModal}>
+          <ModalInner />
+        </ModalComponent>
+      )}
       <HeaderComponent />
       <FooterComponent />
       <Wrapper
