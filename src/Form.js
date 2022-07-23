@@ -2,14 +2,55 @@ import React from "react";
 import * as Yup from "yup";
 // import { Field } from "formik";
 import { useField, Formik, Form } from "formik";
+import styled from "styled-components";
+
+const Input = styled.input`
+  border: 2px solid #000;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin: 8px 0 24px;
+  padding: 12px;
+  width: 100%;
+
+  &:focus {
+    border-color: #0519ce;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
+`;
+
+const Label = styled.label`
+  font-weight: 600;
+`;
+
+const Error = styled.span`
+  color: #e26e2d;
+`;
+
+const Submit = styled.button`
+  background: none;
+  border: 2px solid #0519ce;
+  color: #0519ce;
+  cursor: pointer;
+  float: right;
+  font-size: 700;
+  padding: 12px;
+  text-transform: uppercase;
+
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
+`;
 
 const InputComponent = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
-    <label>
-      {label}: {meta.touched && meta.error && <div>{meta.error}</div>}
-      <input {...field} {...props} />
-    </label>
+    <Label>
+      {label}: {meta.touched && meta.error && <Error>{meta.error}</Error>}
+      <Input {...field} {...props} />
+    </Label>
   );
 };
 
@@ -26,7 +67,7 @@ const FormComponent = ({ handleSuccess }) => {
       onSubmit={handleSuccess}
       validationSchema={schema}
     >
-      {({ errors, touched }) => (
+      {() => (
         <Form>
           <InputComponent
             name="name"
@@ -40,6 +81,7 @@ const FormComponent = ({ handleSuccess }) => {
             label="Email"
             autoComplete="off"
           />
+          <Submit type="submit">Submit</Submit>
         </Form>
       )}
     </Formik>
